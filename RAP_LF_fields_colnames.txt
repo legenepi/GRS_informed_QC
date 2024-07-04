@@ -1,0 +1,30 @@
+eid	Participant ID	ID
+p20031_i0_a0	Acceptability of each blow result (text) | Instance 0 | Array 0	blow_acceptability_A_0
+p20031_i0_a1	Acceptability of each blow result (text) | Instance 0 | Array 1	blow_acceptability_A_1
+p20031_i0_a2	Acceptability of each blow result (text) | Instance 0 | Array 2	blow_acceptability_A_2
+p23_i0	Spirometry method | Instance 0	spiro_method
+p3059_i0_a0	Result ranking | Instance 0 | Array 0	result_ranking_0
+p3059_i0_a1	Result ranking | Instance 0 | Array 1	result_ranking_1
+p3059_i0_a2	Result ranking | Instance 0 | Array 2	result_ranking_2
+p3060_i0_a0	Time of blow measurement | Instance 0 | Array 0	time_of_blow_0
+p3060_i0_a1	Time of blow measurement | Instance 0 | Array 1	time_of_blow_1
+p3060_i0_a2	Time of blow measurement | Instance 0 | Array 2	time_of_blow_2
+p3061_i0_a0	Acceptability of each blow result | Instance 0 | Array 0	acceptability_of_blow_0
+p3061_i0_a1	Acceptability of each blow result | Instance 0 | Array 1	acceptability_of_blow_1
+p3061_i0_a2	Acceptability of each blow result | Instance 0 | Array 2	acceptability_of_blow_2
+p3062_i0_a0	Forced vital capacity (FVC) | Instance 0 | Array 0	fvc_0
+p3062_i0_a1	Forced vital capacity (FVC) | Instance 0 | Array 1	fvc_1
+p3062_i0_a2	Forced vital capacity (FVC) | Instance 0 | Array 2	fvc_2
+p3063_i0_a0	Forced expiratory volume in 1-second (FEV1) | Instance 0 | Array 0	fev1_0
+p3063_i0_a1	Forced expiratory volume in 1-second (FEV1) | Instance 0 | Array 1	fev1_1
+p3063_i0_a2	Forced expiratory volume in 1-second (FEV1) | Instance 0 | Array 2	fev1_2
+p3064_i0_a0	Peak expiratory flow (PEF) | Instance 0 | Array 0	pef_0
+p3064_i0_a1	Peak expiratory flow (PEF) | Instance 0 | Array 1	pef_1
+p3064_i0_a2	Peak expiratory flow (PEF) | Instance 0 | Array 2	pef_2
+p3065_i0_a0	Ordering of blows | Instance 0 | Array 0	blow_order_0
+p3065_i0_a1	Ordering of blows | Instance 0 | Array 1	blow_order_1
+p3065_i0_a2	Ordering of blows | Instance 0 | Array 2	blow_order_2
+p3088_i0	Contra-indications for spirometry | Instance 0	contra-indications_for_spiro
+p3132_i0	Spirometry device serial number | Instance 0	spiro_serial_number
+p3137_i0	Number of measurements made | Instance 0	number_measrurements_made
+p42_i0	Spirometer device ID | Instance 0	spiro_id

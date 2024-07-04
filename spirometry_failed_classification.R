@@ -1,10 +1,12 @@
 library(tidyverse)
 
-lung.function.df <- read_csv("lung.function.data")
-derived.df <- read_csv("clean_curve_derived_variables_orig.csv")
-lung.function <- inner_join(lung.function.df, derived.df, by="ID") %>%
-  inner_join(read_tsv("ukb4892_smoking_behaviour_pheno_clean_200617") %>%
-               select(ID=app_id.648, EVERSMK))
+args <- commandArgs(T)
+lung.function.file <- args[1]
+derived.file <- args[2]
+
+lung.function.df <- read_csv(lung.function.file)
+derived.df <- read_csv(derived.file)
+lung.function <- inner_join(lung.function.df, derived.df, by="ID")
 
 ### 2. At least two measures of FEV1 and FVC, Complete information for spirometry method used, Age, sex, standing height and ever smoking status 
 lung.function.filt <- lung.function %>%
@@ -77,4 +79,4 @@ cols_wide <- cols_blow %>%
 LF <- LF_long_QC %>%
   pivot_wider(names_from = blow, names_glue = "{.value}_{blow}", values_from = all_of(cols_wide))
 
-write_csv(LF, file="UKBB_spirometry_QC_blows_classified_648.csv")
+write_csv(LF, file="UKBB_spirometry_QC_blows_classified.csv")
