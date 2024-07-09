@@ -1,6 +1,10 @@
 library(tidyverse)
 
-lung.function <- read_csv("UKBB_spirometry_QC_blows_classified_long.csv")
+lung.function <- read_csv("UKBB_spirometry_QC_blows_classified.csv")
+
+LF_long <- lung.function %>%
+  pivot_longer(all_of(matches(".+_[0-2]$")), names_to = c(".value", "blow"),
+               names_pattern = "(.+)_([0-2])$")
 
 #################################################################################
 
@@ -12,7 +16,7 @@ repro <- function(x, acceptable, THRESHOLD=0.25) {
   length(x) > 1 & any(round(abs(max_acc - x[-which_max_acc]), 10) <= THRESHOLD)
 }
 
-LF_best <- lung.function %>%
+LF_best <- LF_long %>%
   mutate(acceptable = REJECT == 0 & biobank_derived_consistent == 0 & blow_points_ok == 0) %>%
   group_by(ID) %>%
   filter(any(acceptable)) %>%
@@ -24,6 +28,7 @@ LF_best <- lung.function %>%
             ratio_best=fev1_best/fvc_best,
             pef_best=pef[1]) %>% # select pef with highest fev1 + fvc; highest pef for ties
   filter(pass_LF_QC) %>% # Only keep blows passing QC
-  select(ID, ends_with("_best"))
+  select(ID, ends_with("_best")) %>%
+  left_join(lung.function %>% select(ID, age_at_recruitment, sex, standing_height, EVERSMK), by="ID")
 
 write_tsv(LF_best, "spirometry_new_QC_full_measures.txt")

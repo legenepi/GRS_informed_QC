@@ -4,9 +4,11 @@
 
 dx mkdir -p $DEST
 
-if ! dx ls ${DEST}/RAP_LF_fields.txt 2> /dev/null; then
-    dx upload --destination ${DEST}/ RAP_LF_fields.txt 
+if dx ls ${DEST}/RAP_LF_fields.txt 2> /dev/null; then
+    dx rm ${DEST}/RAP_LF_fields.txt
 fi
+
+dx upload --destination ${DEST}/ RAP_LF_fields.txt 
 
 dx run table-exporter \
     -idataset_or_cohort_or_dashboard=$DATASET \

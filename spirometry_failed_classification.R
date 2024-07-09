@@ -6,25 +6,16 @@ derived.file <- args[2]
 
 lung.function.df <- read_csv(lung.function.file)
 derived.df <- read_csv(derived.file)
-lung.function <- inner_join(lung.function.df, derived.df, by="ID")
 
-### 2. At least two measures of FEV1 and FVC, Complete information for spirometry method used, Age, sex, standing height and ever smoking status 
-lung.function.filt <- lung.function %>%
-  filter(!is.na(number_measrurements_made) &
-           number_measrurements_made > 1 & 
-           !is.na(spiro_method) & 
-           !is.na(sex) &
-           !is.na(standing_height) &
-           !is.na(age_at_recruitment) &
-           !is.na(lung.function$EVERSMK)) %>%
+lung.function <- inner_join(lung.function.df, derived.df, by="ID") %>%
   rename_with(~str_replace(., "pef\\.([0-2])", "der.pef.\\1") %>%
                 str_replace(".([0-2])$", "_\\1"))
 
-cols_blow <- lung.function.filt %>%
+cols_blow <- lung.function %>%
   select(matches(".+_[0-2]$")) %>%
   names
 
-LF_long <- lung.function.filt %>%
+LF_long <- lung.function %>%
   pivot_longer(all_of(cols_blow), names_to = c(".value", "blow"), names_pattern = "(.+)_([0-2])$")
 
 #### annotate blows with number of error messages
@@ -68,8 +59,6 @@ LF_long_QC <- LF_long %>%
          blow_points_ok=points.ok.fun(derived.fields.error),
          biobank_derived_consistent=ifelse(ukb.der.consistent(fev1, der.fev1) &
            ukb.der.consistent(fvc, der.fvc), 0, 1))
-
-write_csv(LF_long_QC, file="UKBB_spirometry_QC_blows_classified_long.csv")
 
 cols_wide <- cols_blow %>%
   str_remove("_[0-2]$") %>%

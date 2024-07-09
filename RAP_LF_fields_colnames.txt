@@ -1,4 +1,10 @@
 eid	Participant ID	ID
+p31	Sex	sex
+p50_i0	Standing height | Instance 0	standing_height
+p21022	Age at recruitment	age_at_recruitment
+p1239_i0	Current tobacco smoking | Instance 0	current_tabacco_smoking
+p1249_i0	Past tobacco smoking | Instance 0	past_tabacco_smoking
+p2644_i0	Light smokers, at least 100 smokes in lifetime | Instance 0	at_least_100_smokes
 p20031_i0_a0	Acceptability of each blow result (text) | Instance 0 | Array 0	blow_acceptability_A_0
 p20031_i0_a1	Acceptability of each blow result (text) | Instance 0 | Array 1	blow_acceptability_A_1
 p20031_i0_a2	Acceptability of each blow result (text) | Instance 0 | Array 2	blow_acceptability_A_2
