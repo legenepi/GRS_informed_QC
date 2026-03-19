@@ -53,4 +53,4 @@ Genetic risk score-informed re-evaluation of spirometry quality control to maxim
 
 Jing Chen, Nick Shrine, Abril G Izquierdo, Anna Guyatt, Henry Völzke, Stephanie London, Ian P Hall, Frank Dudbridge, SpiroMeta Consortium, CHARGE Consortium, Louise V Wain, Martin D Tobin, Catherine John
 
-https://doi.org/10.1101/2024.07.31.24311269
+[PMID: 41684607](https://pubmed.ncbi.nlm.nih.gov/41684607/)
