@@ -57,7 +57,7 @@ derive_variables <- function(x, pos) {
     select(-vol_l, -vol_u)
   
   derived <- blows_data_der %>%
-    summarise(fetime = sum(time > zero.time) * 0.01,
+    reframe(fetime = sum(time > zero.time) * 0.01,
               femeasure = sum(measure > zero.measure) + 1,
               fvc = max(volume[time > zero.time]),
               fetvol = vol[measure == femeasure],
